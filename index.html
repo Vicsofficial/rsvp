@@ -32,21 +32,17 @@
             <button type="submit" name="attendance" value="unable">I will be unable to attend</button>
         </div>
         
-        <!--{% if request.method == 'POST' and request.form.get('attendance') == 'dinner' %}-->
         <div id="guest-question">
             <p>Are you bringing any guests?</p>
             <button type="submit" name="guests" value="yes">Yes</button>
             <button type="submit" name="guests" value="no">No</button>
         </div>
-        <!--{% endif %}
 
-        {% if request.method == 'POST' and request.form.get('guests') == 'yes' %}-->
         <div id="guest-count">
             <p>How many guests are you bringing?</p>
             <input type="number" name="guest_count" min="0" value="0">
             <button type="submit">Submit</button>
         </div>
-       <!--{% endif %}-->
     </form>
 </body>
 </html>
