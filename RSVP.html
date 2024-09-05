@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event RSVP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event RSVP</h1>
+
+    <div id="initial-options">
+        <button onclick="handleAttendance('dinner')">I will attend and have dinner</button>
+        <button onclick="handleAttendance('no-dinner')">I will attend but not have dinner</button>
+        <button onclick="handleAttendance('unable')">I will be unable to attend</button>
+    </div>
+
+    <div id="guest-question" class="hidden">
+        <p>Are you bringing any guests?</p>
+        <button onclick="handleGuests('yes')">Yes</button>
+        <button onclick="handleGuests('no')">No</button>
+    </div>
+
+    <div id="guest-count" class="hidden">
+        <p>How many guests are you bringing?</p>
+        <input type="number" id="guest-number" min="0" value="0">
+        <button onclick="submitForm()">Submit</button>
+    </div>
+
+    <div id="confirmation" class="hidden">
+        <p>Thank you for submitting your details. Your input helps us plan better.</p>
+    </div>
+
+    <script>
+        function handleAttendance(response) {
+            document.getElementById('initial-options').classList.add('hidden');
+            if (response === 'dinner') {
+                document.getElementById('guest-question').classList.remove('hidden');
+            } else {
+                document.getElementById('confirmation').classList.remove('hidden');
+            }
+        }
+
+        function handleGuests(response) {
+            document.getElementById('guest-question').classList.add('hidden');
+            if (response === 'yes') {
+                document.getElementById('guest-count').classList.remove('hidden');
+            } else {
+                document.getElementById('confirmation').classList.remove('hidden');
+            }
+        }
+
+        function submitForm() {
+            document.getElementById('guest-count').classList.add('hidden');
+            document.getElementById('confirmation').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
